@@ -557,14 +557,14 @@ export default function QSignDashboard() {
             label="UIN总数"
             value={stats.commands}
             color="primary"
-            description="当前在线的QSign服务数"
+            description="使用过QSign的UIN数量"
           />
           <StatsCard
             icon={CommandLineIcon}
             label="CMD总数"
             value={stats.commands}
             color="secondary"
-            description="不同的CMD类型数量"
+            description="CMD数量"
           />
           <StatsCard
             icon={CpuChipIcon}
@@ -575,17 +575,17 @@ export default function QSignDashboard() {
           />
           <StatsCard
             icon={ServerIcon}
-            label="路径总数"
+            label="被访问的Path"
             value={stats.paths}
             color="warning"
-            description="不同的安装路径数量"
+            description="如/sign"
           />
           <StatsCard
             icon={SignalIcon}
-            label="记录总数"
+            label="访问次数"
             value={stats.total}
             color="danger"
-            description="所有的记录总数"
+            description="全部访问次数"
           />
         </div>
 
@@ -598,7 +598,7 @@ export default function QSignDashboard() {
                   <ServerIcon className="w-5 h-5 text-blue-600 dark:text-blue-400" />
                 </div>
                 <div>
-                  <h2 className="text-xl font-bold text-gray-800 dark:text-gray-200">在线服务列表</h2>
+                  <h2 className="text-xl font-bold text-gray-800 dark:text-gray-200">签名记录</h2>
                   <p className="text-sm text-gray-600 dark:text-gray-400">实时同步服务状态</p>
                 </div>
               </div>
