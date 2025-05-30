@@ -30,6 +30,7 @@ import {
   CommandLineIcon,
   SignalIcon,
   ChartBarIcon,
+  CalendarDateRangeIcon,
 } from "@heroicons/react/24/outline";
 
 // 使用 clsx 和 tailwind-merge 实现类名合并功能
@@ -52,7 +53,8 @@ interface SignData {
   cmd: string;
   version: string;
   path: string;
-  uin: string;
+  // uin: string;
+  time: number | string;
 }
 
 interface ConnectionStats {
@@ -267,8 +269,8 @@ const ServiceItem = ({ item, index }: { item: SignData; index: number }) => {
   }, [index]);
 
   const avatarSeed = useMemo(
-    () => `${item.uin}-${item.version}`,
-    [item.uin, item.version],
+    () => `${item.time}-${item.version}`,
+    [item.time, item.version],
   );
 
   return (
@@ -320,10 +322,19 @@ const ServiceItem = ({ item, index }: { item: SignData; index: number }) => {
                   className="text-xs font-semibold"
                   color="success"
                   size="sm"
-                  startContent={<ServerIcon className="w-3 h-3" />}
+                  startContent={<CalendarDateRangeIcon className="w-3 h-3" />}
                   variant="flat"
                 >
                   {item.path}
+                </Chip>
+                <Chip
+                  className="text-xs font-semibold"
+                  color="secondary"
+                  size="sm"
+                  startContent={<CpuChipIcon className="w-3 h-3" />}
+                  variant="flat"
+                >
+                  {item.time}
                 </Chip>
               </div>
             </div>
