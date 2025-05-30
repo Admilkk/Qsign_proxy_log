@@ -272,6 +272,11 @@ const ServiceItem = ({ item, index }: { item: SignData; index: number }) => {
     () => `${item.time}-${item.version}`,
     [item.time, item.version],
   );
+  const date = new Date(Number(item.time));
+  const day = `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`;
+  const hour = date.getHours();
+  const minute = date.getMinutes();
+  const second = date.getSeconds();
 
   return (
     <div
@@ -334,7 +339,7 @@ const ServiceItem = ({ item, index }: { item: SignData; index: number }) => {
                   startContent={<CpuChipIcon className="w-3 h-3" />}
                   variant="flat"
                 >
-                  {item.time}
+                  {day} {hour}:{minute}:{second}
                 </Chip>
               </div>
             </div>
